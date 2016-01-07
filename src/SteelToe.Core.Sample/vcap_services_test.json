@@ -1,0 +1,37 @@
+﻿{
+  "VCAP_SERVICES": {
+    "elephantsql": [
+      {
+        "name": "elephantsql-c6c0",
+        "label": "elephantsql",
+        "tags": [ "postgres", "postgresql", "relational" ],
+        "plan": "turtle",
+        "credentials": {
+          "uri": "http: //foo.bar/baz"
+        }
+      },
+      {
+        "name": "elephantsql-two",
+        "label": "elephantsql",
+        "tags": [ "postgres", "postgresql", "relational" ],
+        "plan": "not-so-turtle",
+        "credentials": {
+          "uri": "http: //bar.baz/foo"
+        }
+      }
+    ],
+    "sendgrid": [
+      {
+        "name": "mysendgrid",
+        "label": "sendgrid",
+        "tags": [ "smtp" ],
+        "plan": "free",
+        "credentials": {
+          "hostname": "smtp.sendgrid.net",
+          "username": "foo",
+          "password": "bar"
+        }
+      }
+    ]
+  }
+}

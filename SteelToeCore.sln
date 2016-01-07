@@ -7,6 +7,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SteelToe.Core", "src\SteelT
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SteelToe.Core.Test", "test\SteelToe.Core.Test\SteelToe.Core.Test.xproj", "{518891D6-AE59-4B89-8577-07FF15A2866E}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "SteelToe.Core.Sample", "src\SteelToe.Core.Sample\SteelToe.Core.Sample.xproj", "{11E9360A-36C1-4786-8030-F77B39F23EA1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{518891D6-AE59-4B89-8577-07FF15A2866E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{518891D6-AE59-4B89-8577-07FF15A2866E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{518891D6-AE59-4B89-8577-07FF15A2866E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E9360A-36C1-4786-8030-F77B39F23EA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E9360A-36C1-4786-8030-F77B39F23EA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E9360A-36C1-4786-8030-F77B39F23EA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E9360A-36C1-4786-8030-F77B39F23EA1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
