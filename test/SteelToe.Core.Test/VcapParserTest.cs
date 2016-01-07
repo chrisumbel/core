@@ -69,6 +69,38 @@ namespace SteelToe.Core.Test
         }
 
         [Fact]
+        public void TestParserHandlesUserProvidedServices()
+        {
+            var vcapRaw = @"
+            {      
+                'user-provided' :
+                 [
+                    {
+                        'name' : 'my-ups',
+                        'label' : 'user-provided',
+                        'tags' : [],                  
+                        'credentials' : {
+                            'hostname' : 'host.name',
+                            'username' : 'foo',
+                            'password' : 'bar',
+                            'uri' : 'http://this/is/a/uri'
+                        }
+                    } 
+                 ]
+             }";
+            VcapParser parser = new VcapParser();
+            var results = parser.ParseConfigurationForVcap(vcapRaw);
+            Assert.NotNull(results);
+            Assert.True(results.ContainsKey("my-ups"));
+            Assert.Equal(1, results.Count);
+            var myUps = results["my-ups"];
+            Assert.True(myUps.UserProvided);
+            Assert.Equal(String.Empty, myUps.Plan);
+            Assert.Equal("user-provided", myUps.Label);
+            Assert.Equal("http://this/is/a/uri", (string)myUps.Credentials["uri"]);
+        }
+
+        [Fact]
         public void TestVcapParserThrowsExceptionWithBadJson()
         {
             var badJson = @"{ 'this' : won't parse }";
