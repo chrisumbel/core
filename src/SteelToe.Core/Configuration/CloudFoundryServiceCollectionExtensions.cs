@@ -15,19 +15,21 @@ namespace SteelToe.Core.Configuration
             IConfigurationRoot configuration)
         {
             string vcapRaw = configuration.GetSection("VCAP_SERVICES").Value;
-            if (vcapRaw == null)
-            {
-                throw new ArgumentNullException("VCAP_SERVICES", "Could not find any VCAP_SERVICES values in configuration. Cannot configure cloud foundry service bindings.");
-            }
+            Dictionary<String, BoundService> results = new Dictionary<string, BoundService>();
             VcapParser parser = new VcapParser();
-            Dictionary<String, BoundService> results;
-            try
+            
+            if (vcapRaw != null && vcapRaw != String.Empty)
             {
-                results = parser.ParseConfigurationForVcap(vcapRaw);
-            } catch (Exception ex)
-            {
-                throw new ArgumentException("VCAP_SERVICES", "Could not parse VCAP_SERVICES environment variable or other substitute configuration. Cannot enable cloud foundry configuration.", ex);
+                try
+                {
+                    results = parser.ParseConfigurationForVcap(vcapRaw);
+                }
+                catch (Exception ex)
+                {
+                    throw new ArgumentException("VCAP_SERVICES", "Could not parse VCAP_SERVICES environment variable or other substitute configuration. Cannot enable cloud foundry configuration.", ex);
+                }
             }
+           
             serviceCollection.Configure<CloudFoundryBoundServiceOptions>(options =>
             {
                 options.BoundServices = results;

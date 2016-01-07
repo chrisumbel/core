@@ -28,7 +28,7 @@ namespace SteelToe.Core.Sample
                     {
                         "VCAP_SERVICES", json
                     }
-                })
+                }) 
                 .AddJsonFile("appsettings.json")                
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
