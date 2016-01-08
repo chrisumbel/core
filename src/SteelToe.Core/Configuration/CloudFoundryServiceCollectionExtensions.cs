@@ -18,7 +18,7 @@ namespace SteelToe.Core.Configuration
             Dictionary<String, BoundService> results = new Dictionary<string, BoundService>();
             VcapParser parser = new VcapParser();
             
-            if (vcapRaw != null && vcapRaw != String.Empty)
+            if (!string.IsNullOrEmpty(vcapRaw))
             {
                 try
                 {
